@@ -20,5 +20,7 @@ public class Main {
         TaskExecute taskExecute = (TaskExecute) context.getBean("taskExecute");
 
         taskExecute.executeTask();
+
+        context.close();
     }
 }
