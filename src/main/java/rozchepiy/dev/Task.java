@@ -4,6 +4,7 @@ package rozchepiy.dev;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -11,15 +12,17 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component("main-task")
-//@Scope("prototype")
 public class Task {
     private final String name;
-    private final Long duration;
+    private final Integer duration;
 
 
-    public Task() {
-        this.name = "task";
-        this.duration = 60L;
+    public Task(
+            @Value("${task.name}") String name,
+            @Value("${task.duration}") Integer duration
+    ) {
+        this.name = name;
+        this.duration = duration;
         System.out.println("Call task constructor");
     }
 
@@ -37,7 +40,7 @@ public class Task {
         return name;
     }
 
-    public Long getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
