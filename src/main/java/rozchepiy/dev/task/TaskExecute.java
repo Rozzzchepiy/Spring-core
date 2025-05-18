@@ -1,7 +1,7 @@
-package rozchepiy.dev;
+package rozchepiy.dev.task;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import rozchepiy.dev.aop.Loggable;
 
 @Component
 public class TaskExecute {
@@ -11,6 +11,7 @@ public class TaskExecute {
         this.task = task;
     }
 
+    @Loggable(value = "ERROR")
     public void executeTask() {
         System.out.printf("Executing task with name %s, total seconds %s%n", task.getName(), task.getDuration());
     }

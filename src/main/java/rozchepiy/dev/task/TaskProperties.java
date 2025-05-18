@@ -1,4 +1,4 @@
-package rozchepiy.dev;
+package rozchepiy.dev.task;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

@@ -1,15 +1,10 @@
-package rozchepiy.dev;
+package rozchepiy.dev.task;
 
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 @Component("main-task")
 public class Task {
@@ -23,17 +18,17 @@ public class Task {
     ) {
         this.name = name;
         this.duration = duration;
-        System.out.println("Call task constructor");
+//        System.out.println("Call task constructor");
     }
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("Call task postConstruct");
+//        System.out.println("Call task postConstruct");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("Call task preDestroy");
+//        System.out.println("Call task preDestroy");
     }
 
     public String getName() {

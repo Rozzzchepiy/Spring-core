@@ -1,10 +1,10 @@
-package rozchepiy.dev;
+package rozchepiy.dev.task;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import rozchepiy.dev.aop.Loggable;
 
 
 @Component("taskManager")
@@ -19,20 +19,19 @@ public class TaskManager {
 
     @PostConstruct
     public void postConstructor() {
-        System.out.println("Call taskManager postConstruct");
+//        System.out.println("Call taskManager postConstruct");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("Call taskManager preDestroy");
+//        System.out.println("Call taskManager preDestroy");
     }
 
-    public void printTask() {
-        if (task == null) {
-            System.out.println("No current task");
-        } else {
+    @Loggable
+    public Integer printTask() {
             System.out.println("Current task: " + task.toString());
-        }
+//            throw new RuntimeException("Exception in taskManager");
+            return task.getDuration();
     }
 
 
